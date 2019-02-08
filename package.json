@@ -1,0 +1,140 @@
+{
+	"name": "lit-mustache",
+	"displayName": "lit-mustache",
+	"description": "Literal Coding with Mustache",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.31.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"main": "./extension.js",
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"activationEvents": [
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact"
+	],
+	"contributes": {
+		"configuration": [
+			{
+				"id": "lit-mustache",
+				"title": "Lit HTML",
+				"properties": {
+					"lit-mustache.tags": {
+						"type": "array",
+						"description": "List of template tags to enable html intellisense in.",
+						"items": {
+							"type": "string",
+							"description": "Tag name."
+						},
+						"default": [
+							"stache",
+							"mustache"
+						]
+					},
+					"lit-mustache.format.enabled": {
+						"type": "boolean",
+						"description": "Enable/disable formatting of html template strings.",
+						"default": true
+					}
+				}
+			}
+		],
+		"grammars": [
+			{
+				"injectTo": [
+					"source.js",
+					"source.js.jsx",
+					"source.jsx",
+					"source.ts",
+					"source.tsx",
+					"text.html.basic"
+				],
+				"scopeName": "inline.lit-mustache",
+				"path": "./syntaxes/lit-mustache.json",
+				"embeddedLanguages": {
+					"meta.embedded.block.html": "html",
+					"meta.embedded.block.css": "css",
+					"source.css": "css"
+				}
+			},
+			{
+				"injectTo": [
+					"source.js",
+					"source.js.jsx",
+					"source.jsx",
+					"source.ts",
+					"source.tsx",
+					"text.html.basic"
+				],
+				"scopeName": "inline.lit-mustache.string.injection",
+				"path": "./syntaxes/lit-mustache-string-injection.json",
+				"embeddedLanguages": {
+					"meta.template.expression.ts": "typescript"
+				}
+			},
+			{
+				"injectTo": [
+					"source.js",
+					"source.js.jsx",
+					"source.jsx",
+					"source.ts",
+					"source.tsx",
+					"text.html.basic"
+				],
+				"scopeName": "inline.lit-mustache.style.injection",
+				"path": "./syntaxes/lit-mustache-style-injection.json",
+				"embeddedLanguages": {
+					"meta.template.expression.ts": "typescript"
+				}
+			},
+			{
+				"injectTo": [
+					"source.js",
+					"source.js.jsx",
+					"source.jsx",
+					"source.ts",
+					"source.tsx",
+					"text.html.basic"
+				],
+				"scopeName": "inline.lit-mustache-svg",
+				"path": "./syntaxes/lit-mustache-svg.json",
+				"embeddedLanguages": {
+					"meta.embedded.block.svg": "xml"
+				}
+			}
+		],
+		"typescriptServerPlugins": [
+			{
+				"name": "typescript-lit-html-plugin",
+				"enableForWorkspaceTypeScriptVersions": true
+			}
+		],
+		"jsonValidation": [
+			{
+				"fileMatch": "jsconfig*.json",
+				"url": "./schemas/tsconfig.schema.json"
+			},
+			{
+				"fileMatch": "tsconfig*.json",
+				"url": "./schemas/tsconfig.schema.json"
+			}
+		]
+	},
+	"devDependencies": {
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28",
+		"eslint": "^5.13.0",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"typescript-lit-html-plugin": "^0.9.0"
+	}
+}
