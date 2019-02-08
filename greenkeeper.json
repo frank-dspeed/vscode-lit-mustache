@@ -1,0 +1,10 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "dawhite.mustache-1.1.1/package.json",
+        "package.json"
+      ]
+    }
+  }
+}
