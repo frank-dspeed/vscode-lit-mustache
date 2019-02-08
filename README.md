@@ -1,5 +1,7 @@
 # lit-mustache README
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/direktspeed/vscode-lit-mustache.svg)](https://greenkeeper.io/)
+
 This is the README for your extension "lit-mustache". After writing up a brief description, we recommend including the following sections.
 
 ## Features
