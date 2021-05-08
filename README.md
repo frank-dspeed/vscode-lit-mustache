@@ -1,3 +1,8 @@
+# DEPRECATED use vscode-inline-html 
+This should offer syntax highlighting for inlined mustache template you can get this functionality via other plugins that use the /** html */\`
+Notion
+
+
 # lit-mustache README
 
 This is the README for your extension "lit-mustache". After writing up a brief description, we recommend including the following sections.
